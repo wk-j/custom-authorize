@@ -6,14 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CustomAuthorize {
 
-    public class ClaimRequirementAttribute : TypeFilterAttribute {
-        public ClaimRequirementAttribute(string claimType, string claimValue) :
-            base(typeof(ClaimRequirementAttribute)) {
-            Arguments = new object[] { new Claim(claimType, claimValue) };
-        }
-    }
-
-
     public class ClaimRequirementFilter : IAuthorizationFilter {
         readonly Claim claim;
         public ClaimRequirementFilter(Claim claim) {
